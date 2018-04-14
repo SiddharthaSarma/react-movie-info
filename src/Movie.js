@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Movie extends Component {
   state = {
@@ -80,4 +81,11 @@ class Movie extends Component {
     );
   }
 }
+Movie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }),
+};
 export default Movie;

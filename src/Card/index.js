@@ -23,6 +23,7 @@ const Card = props => (
 
 Card.propTypes = {
   movie: PropTypes.shape({
+    id: PropTypes.number,
     title: PropTypes.string,
     poster_path: PropTypes.string,
   }),
