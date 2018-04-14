@@ -11,11 +11,6 @@ class App extends Component {
   state = {
     movies: [],
   };
-  async componentDidMount() {
-    const result = await fetch('https://api.themoviedb.org/3/search/movie?api_key=8f253d49332ce1bab9054b6c0b810226&language=en-US&query=blade');
-    const movies = await result.json();
-    this.setState({ movies: movies.results });
-  }
 
   searchMovies(movie) {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=8f253d49332ce1bab9054b6c0b810226&language=en-US&query=${movie}`)
