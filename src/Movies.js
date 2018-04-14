@@ -19,7 +19,7 @@ class Movies extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Search onSearch={this.searchMovies} />
         <div className="row">
           {this.state.movies.map(movie => <Card key={movie.id} movie={movie} />)}
