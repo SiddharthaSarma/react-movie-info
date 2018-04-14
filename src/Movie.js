@@ -7,9 +7,9 @@ class Movie extends Component {
     movie: undefined,
   };
   async componentDidMount() {
-    const result = await fetch(`https://api.themoviedb.org/3/movie/${
-      this.props.match.params.id
-    }?api_key=98325a9d3ed3ec225e41ccc4d360c817`);
+    const result = await fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${
+      process.env.REACT_APP_API_KEY
+    }`);
     const movie = await result.json();
     this.setState({ movie });
   }
