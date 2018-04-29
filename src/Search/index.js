@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 
 class Search extends Component {
-  constructor() {
-    super();
+  constructor( props ) {
+    super( props );
     this.submitForm = this.submitForm.bind( this );
     this.changeSearch = this.changeSearch.bind( this );
   }
@@ -33,7 +33,7 @@ class Search extends Component {
               onInput={this.changeSearch}
               className="form-control"
               id="searchText"
-              placeholder={<FormattedMessage id="search.placeholder" />}
+              placeholder={this.props.intl.formatMessage( { id: 'search.placeholder' } )}
             />
           </form>
         </div>
@@ -44,6 +44,9 @@ class Search extends Component {
 
 Search.propTypes = {
   onSearch: PropTypes.func,
+  intl: PropTypes.shape( {
+    formatMessage: PropTypes.func
+  } )
 };
 
-export default Search;
+export default injectIntl( Search );
