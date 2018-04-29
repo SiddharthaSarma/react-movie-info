@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import Card from './Card';
+import Pagination from './Pagination';
 
 class Movies extends Component {
   constructor() {
@@ -8,7 +9,8 @@ class Movies extends Component {
     this.searchMovies = this.searchMovies.bind( this );
   }
   state = {
-    movies: []
+    movies: [],
+    pages: 0
   };
 
   searchMovies ( movie ) {
@@ -18,7 +20,10 @@ class Movies extends Component {
       }&language=en-US&query=${movie}`
     )
       .then( res => res.json() )
-      .then( movies => this.setState( { movies: movies.results } ) );
+      .then( movies => this.setState( {
+        movies: movies.results,
+        pages: Math.floor( movies.total_results / 20 )
+      } ) );
   }
 
   render () {
@@ -29,6 +34,9 @@ class Movies extends Component {
           {this.state.movies.map( movie => (
             <Card key={movie.id} movie={movie} />
           ) )}
+        </div>
+        <div className="row">
+          <Pagination pages={this.state.pages} />
         </div>
       </div>
     );
