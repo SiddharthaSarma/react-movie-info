@@ -28,6 +28,7 @@ module.exports = {
     'react/require-default-props': 0,
     'react/no-did-mount-set-state': 0,
     'jsx-a11y/anchor-is-valid': 0,
-    "indent": [2, 2]
+    'no-param-reassign': 0,
+    'indent': [2, 2]
   },
 };
