@@ -33,7 +33,7 @@ class Search extends Component {
               onInput={this.changeSearch}
               className="form-control"
               id="searchText"
-              placeholder="Search movies..."
+              placeholder={<FormattedMessage id="search.placeholder" />}
             />
           </form>
         </div>
