@@ -17,8 +17,12 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['react'],
-  extends: 'airbnb',
+  plugins: ['react', 'prettier'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'prettier/react'
+  ],
   rules: {
     'react/jsx-filename-extension': 0,
     'react/require-default-props': 0,
